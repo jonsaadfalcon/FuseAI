@@ -1,0 +1,25 @@
+nohup: ignoring input
+05/09/2024 01:46:20 - INFO - __main__ - Data processing args: Namespace(model_name_or_path='EleutherAI/pythia-1.4b-deduped', dataset='datasets/minipile_processed', dataset_save_dir='datasets/minipile_processed_lm_representations/pythia-1.4b-deduped/1_of_1/', dataset_sample_prop=0.001, dataset_split_num=1, dataset_index=1, cache_dir='datasets/minipile_processed', model_max_length=2048, training_mode='full', load_in_half='bf16', batch_size=64, preprocessing_num_workers=128, top_k_logits=10, save_per_token_metric=True, no_assert=False)
+05/09/2024 01:46:20 - INFO - __main__ - Sample prop: 0.001.
+05/09/2024 01:46:20 - INFO - __main__ - train: select_size: 1559
+05/09/2024 01:46:21 - INFO - __main__ - validation: select_size: 0
+05/09/2024 01:46:21 - INFO - __main__ - test: select_size: 15
+05/09/2024 01:46:21 - INFO - __main__ - Split num: 1; Split index: 1.
+Traceback (most recent call last):
+  File "/var/cr05_data/sabri/jonsf/PretrainingProject/PretrainingObjectives/pretraining/FuseAI/FuseLLM/./src/utils/forward_for_logits.py", line 1231, in <module>
+    select_dataset = v.select(range(start_index, end_index))
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 558, in wrapper
+    out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/datasets/fingerprint.py", line 482, in wrapper
+    out = func(dataset, *args, **kwargs)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 3818, in select
+    return self._select_contiguous(start, length, new_fingerprint=new_fingerprint)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 558, in wrapper
+    out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/datasets/fingerprint.py", line 482, in wrapper
+    out = func(dataset, *args, **kwargs)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 3878, in _select_contiguous
+    _check_valid_indices_value(start, len(self))
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 650, in _check_valid_indices_value
+    raise IndexError(f"Index {index} out of range for dataset of size {size}.")
+IndexError: Index 1559 out of range for dataset of size 1559.

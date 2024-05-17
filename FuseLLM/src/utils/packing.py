@@ -5,9 +5,13 @@ import math
 from itertools import chain
 
 from datasets import DatasetDict, Features, load_dataset, load_from_disk
-from src.utils.others import (
-    get_logger,
-)
+#from src.utils.others import (
+#    get_logger,
+#)
+
+import logging
+def get_logger(name: str) -> logging.Logger:
+    return logging.getLogger(name)
 
 logger = get_logger(__name__)
 

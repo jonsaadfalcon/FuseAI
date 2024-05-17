@@ -1,0 +1,21 @@
+nohup: ignoring input
+05/07/2024 18:15:00 - INFO - __main__ - Data processing args: Namespace(model_name_or_path='openlm-research/open_llama_3b_v2', dataset='datasets/minipile_processed', dataset_save_dir='datasets/minipile_processed_lm_representations/open_llama_3b_v2/0_100000/', dataset_sample_prop=None, dataset_split_num=100000, dataset_index=0, cache_dir='datasets/minipile_processed', model_max_length=2048, training_mode='full', load_in_half='bf16', batch_size=64, preprocessing_num_workers=128, top_k_logits=10, save_per_token_metric=True, no_assert=False)
+05/07/2024 18:15:01 - INFO - __main__ - Split num: 100000; Split index: 0.
+05/07/2024 18:15:01 - INFO - __main__ - train: start_index: 0, end_index: 15, select_size: 15
+05/07/2024 18:15:01 - INFO - __main__ - validation: start_index: 0, end_index: 0, select_size: 0
+05/07/2024 18:15:01 - INFO - __main__ - test: start_index: 0, end_index: 0, select_size: 0
+05/07/2024 18:15:01 - INFO - __main__ - Loading tokenizer.
+You are using the default legacy behaviour of the <class 'transformers.models.llama.tokenization_llama.LlamaTokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thoroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+05/07/2024 18:15:02 - INFO - __main__ - bos_token: <s>, 1 eos_token: </s>, 2 unk_token: <unk>, 0 pad_token: <unk>, 0 
+num_proc must be <= 15. Reducing num_proc to 15 for dataset of size 15.
+05/07/2024 18:15:02 - WARNING - datasets.arrow_dataset - num_proc must be <= 15. Reducing num_proc to 15 for dataset of size 15.
+Tokenize the dataset. (num_proc=15):   0%|          | 0/15 [00:00<?, ? examples/s]Tokenize the dataset. (num_proc=15):  33%|███▎      | 5/15 [00:00<00:00, 47.73 examples/s]Tokenize the dataset. (num_proc=15): 100%|██████████| 15/15 [00:00<00:00, 69.67 examples/s]
+05/07/2024 18:15:02 - INFO - __main__ - Loading tokenizer.
+05/07/2024 18:15:02 - INFO - __main__ - bos_token: <s>, 1 eos_token: </s>, 2 unk_token: <unk>, 0 pad_token: <unk>, 0 
+05/07/2024 18:15:02 - INFO - __main__ - Loading base model.
+Parameter 'function'=<function forward_for_logits at 0x7f5bab55ad40> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+05/07/2024 18:15:14 - WARNING - datasets.fingerprint - Parameter 'function'=<function forward_for_logits at 0x7f5bab55ad40> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+Forward and get logits of the dataset.:   0%|          | 0/15 [00:00<?, ? examples/s]Forward and get logits of the dataset.: 100%|██████████| 15/15 [00:04<00:00,  3.08 examples/s]Forward and get logits of the dataset.: 100%|██████████| 15/15 [00:04<00:00,  3.07 examples/s]
+Saving the dataset (0/1 shards):   0%|          | 0/15 [00:00<?, ? examples/s]Saving the dataset (1/1 shards): 100%|██████████| 15/15 [00:00<00:00, 659.56 examples/s]Saving the dataset (1/1 shards): 100%|██████████| 15/15 [00:00<00:00, 655.01 examples/s]
+Saving the dataset (0/1 shards): 0 examples [00:00, ? examples/s]Saving the dataset (1/1 shards): : 0 examples [00:00, ? examples/s]Saving the dataset (1/1 shards): : 0 examples [00:00, ? examples/s]
+Saving the dataset (0/1 shards): 0 examples [00:00, ? examples/s]Saving the dataset (1/1 shards): : 0 examples [00:00, ? examples/s]Saving the dataset (1/1 shards): : 0 examples [00:00, ? examples/s]

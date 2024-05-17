@@ -2,11 +2,63 @@
 
 import argparse
 
+#breakpoint()
+
 from datasets import Dataset, DatasetDict, Features, load_dataset, load_from_disk
-from src.utils.others import (
-    get_logger,
-    get_tokenizer,
-)
+import transformers
+
+# get tokenizer
+def get_tokenizer(model_name_or_path, cache_dir, model_max_length):
+    kwargs = {
+        "use_fast": False,
+        "tokenizer_trust_remote_code": False,
+        "model_trust_remote_code": False,
+    }
+    if "llama" in model_name_or_path.lower():
+        kwargs["use_fast"] = False
+        kwargs["tokenizer_trust_remote_code"] = False
+        kwargs["model_trust_remote_code"] = False
+    elif "mpt" in model_name_or_path.lower():
+        kwargs["use_fast"] = True
+        kwargs["tokenizer_trust_remote_code"] = True
+        kwargs["model_trust_remote_code"] = True
+
+
+    elif "gemma" in model_name_or_path.lower() or "pythia" in model_name_or_path.lower() or "gpt2" in model_name_or_path.lower():
+        kwargs["use_fast"] = True
+        kwargs["tokenizer_trust_remote_code"] = True
+        kwargs["model_trust_remote_code"] = True
+
+
+    else:
+        raise NotImplementedError
+    logger.info("Loading tokenizer.")
+    tokenizer = transformers.AutoTokenizer.from_pretrained(
+        model_name_or_path,
+        cache_dir=cache_dir,
+        model_max_length=model_max_length,
+        padding_side="right",
+        use_fast=kwargs["use_fast"],
+        trust_remote_code=kwargs["tokenizer_trust_remote_code"],
+    )
+    if tokenizer.pad_token is None:
+        if tokenizer.unk_token is not None:
+            tokenizer.pad_token = tokenizer.unk_token
+        elif tokenizer.eos_token is not None:
+            tokenizer.pad_token = tokenizer.eos_token
+        else:
+            raise ValueError
+    logger.info(
+        f"bos_token: {tokenizer.bos_token}, {tokenizer.bos_token_id} "
+        f"eos_token: {tokenizer.eos_token}, {tokenizer.eos_token_id} "
+        f"unk_token: {tokenizer.unk_token}, {tokenizer.unk_token_id} "
+        f"pad_token: {tokenizer.pad_token}, {tokenizer.pad_token_id} "
+    )
+    return tokenizer, kwargs
+
+import logging
+def get_logger(name: str) -> logging.Logger:
+    return logging.getLogger(name)
 
 logger = get_logger(__name__)
 
@@ -82,7 +134,12 @@ if __name__ == "__main__":
     another_blending_tokenizer, _ = get_tokenizer(
         args.another_blending_model_name_or_path, args.cache_dir, args.block_size
     )
-    dataset_mapping = load_from_disk(args.dataset)
+
+    try:
+        dataset_mapping = load_from_disk(args.dataset)
+    except:
+        dataset_mapping = load_dataset(args.dataset)
+        
     if args.dataset_sample_prop is not None:
         logger.info(f"Sample prop: {args.dataset_sample_prop}.")
         for k, v in dataset_mapping.items():

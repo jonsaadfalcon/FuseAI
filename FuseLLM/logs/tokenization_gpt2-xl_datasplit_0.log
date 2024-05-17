@@ -1,0 +1,129 @@
+nohup: ignoring input
+05/08/2024 23:09:48 - INFO - __main__ - Data processing args: Namespace(model_name_or_path='openai-community/gpt2-xl', dataset='datasets/minipile_processed', dataset_save_dir='datasets/minipile_processed_lm_representations/gpt2-xl/0_4/', dataset_sample_prop=None, dataset_split_num=4, dataset_index=0, cache_dir='datasets/minipile_processed', model_max_length=2048, training_mode='full', load_in_half='bf16', batch_size=1, preprocessing_num_workers=128, top_k_logits=10, save_per_token_metric=True, no_assert=False)
+05/08/2024 23:09:48 - INFO - __main__ - Split num: 4; Split index: 0.
+05/08/2024 23:09:48 - INFO - __main__ - train: start_index: 0, end_index: 381941, select_size: 381941
+05/08/2024 23:09:48 - INFO - __main__ - validation: start_index: 0, end_index: 184, select_size: 184
+05/08/2024 23:09:48 - INFO - __main__ - test: start_index: 0, end_index: 3772, select_size: 3772
+05/08/2024 23:09:48 - INFO - __main__ - Loading tokenizer.
+05/08/2024 23:09:49 - INFO - __main__ - bos_token: <|endoftext|>, 50256 eos_token: <|endoftext|>, 50256 unk_token: <|endoftext|>, 50256 pad_token: <|endoftext|>, 50256 
+05/08/2024 23:09:50 - INFO - __main__ - Loading tokenizer.
+05/08/2024 23:09:50 - INFO - __main__ - bos_token: <|endoftext|>, 50256 eos_token: <|endoftext|>, 50256 unk_token: <|endoftext|>, 50256 pad_token: <|endoftext|>, 50256 
+05/08/2024 23:09:50 - INFO - __main__ - Loading base model.
+Parameter 'function'=<function forward_for_logits at 0x7f8d7220beb0> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+05/08/2024 23:09:55 - WARNING - datasets.fingerprint - Parameter 'function'=<function forward_for_logits at 0x7f8d7220beb0> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+Forward and get logits of the dataset.:   0%|          | 0/381941 [00:00<?, ? examples/s]You're using a GPT2TokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [64,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [65,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [66,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [67,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [68,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [69,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [70,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [71,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [72,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [73,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [74,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [75,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [76,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [77,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [78,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [79,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [80,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [81,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [82,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [83,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [84,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [85,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [86,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [87,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [88,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [89,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [90,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [91,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [92,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [93,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [94,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [68,0,0], thread: [95,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [32,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [33,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [34,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [35,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [36,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [37,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [38,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [39,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [40,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [41,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [42,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [43,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [44,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [45,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [46,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [47,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [48,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [49,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [50,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [51,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [52,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [53,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [54,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [55,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [56,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [57,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [58,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [59,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [60,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [61,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [62,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+/opt/conda/conda-bld/pytorch_1711403388920/work/aten/src/ATen/native/cuda/Indexing.cu:1290: indexSelectLargeIndex: block: [69,0,0], thread: [63,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+Forward and get logits of the dataset.:   0%|          | 0/381941 [00:00<?, ? examples/s]Forward and get logits of the dataset.:   0%|          | 0/381941 [00:00<?, ? examples/s]
+Traceback (most recent call last):
+  File "/var/cr05_data/sabri/jonsf/PretrainingProject/PretrainingObjectives/pretraining/FuseAI/FuseLLM/./src/utils/forward_for_logits.py", line 1336, in <module>
+    logits_datasets = tokenized_dataset.map(
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/datasets/dataset_dict.py", line 868, in map
+    {
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/datasets/dataset_dict.py", line 869, in <dictcomp>
+    k: dataset.map(
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 593, in wrapper
+    out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 558, in wrapper
+    out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 3105, in map
+    for rank, done, content in Dataset._map_single(**dataset_kwargs):
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 3482, in _map_single
+    batch = apply_function_on_filtered_inputs(
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 3361, in apply_function_on_filtered_inputs
+    processed_inputs = function(*fn_args, *additional_args, **fn_kwargs)
+  File "/var/cr05_data/sabri/jonsf/PretrainingProject/PretrainingObjectives/pretraining/FuseAI/FuseLLM/./src/utils/forward_for_logits.py", line 1296, in forward_for_logits
+    logits = model(
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 1074, in forward
+    transformer_outputs = self.transformer(
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 888, in forward
+    outputs = block(
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 390, in forward
+    attn_outputs = self.attn(
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 312, in forward
+    query, key, value = self.c_attn(hidden_states).split(self.split_size, dim=2)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/var/cr05_data/sim_data/miniconda3/envs/olive10.2/lib/python3.10/site-packages/transformers/pytorch_utils.py", line 103, in forward
+    x = torch.addmm(self.bias, x.view(-1, x.size(-1)), self.weight)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`

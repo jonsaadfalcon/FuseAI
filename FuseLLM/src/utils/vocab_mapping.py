@@ -3,12 +3,93 @@
 import argparse
 import json
 import multiprocessing
+import transformers
+import logging
 
 import editdistance
 import numpy as np
 import tqdm
 from datasets import DatasetDict, Features, load_dataset, load_from_disk
-from src.utils.others import TOKENIZER_TO_SPECIAL_TOKEN, get_logger, get_tokenizer
+#from src.utils.others import TOKENIZER_TO_SPECIAL_TOKEN, get_logger, get_tokenizer
+
+def get_logger(name: str) -> logging.Logger:
+    return logging.getLogger(name)
+
+TOKENIZER_TO_SPECIAL_TOKEN = {
+    transformers.LlamaTokenizer: "▁",
+    transformers.GPTNeoXTokenizerFast: "Ġ",
+    transformers.models.gpt2.tokenization_gpt2_fast.GPT2TokenizerFast: "Ġ",
+    transformers.models.gemma.tokenization_gemma_fast.GemmaTokenizerFast: ""
+}
+
+# get tokenizer
+def get_tokenizer(model_name_or_path, cache_dir, model_max_length):
+    kwargs = {
+        "use_fast": False,
+        "tokenizer_trust_remote_code": False,
+        "model_trust_remote_code": False,
+    }
+    if "llama" in model_name_or_path.lower():
+        kwargs["use_fast"] = False
+        kwargs["tokenizer_trust_remote_code"] = False
+        kwargs["model_trust_remote_code"] = False
+    elif "mpt" in model_name_or_path.lower():
+        kwargs["use_fast"] = True
+        kwargs["tokenizer_trust_remote_code"] = True
+        kwargs["model_trust_remote_code"] = True
+    elif "pythia" in model_name_or_path.lower():
+        kwargs["use_fast"] = True
+        kwargs["tokenizer_trust_remote_code"] = True
+        kwargs["model_trust_remote_code"] = True
+    elif "gemma" in model_name_or_path.lower():
+        kwargs["use_fast"] = True
+        kwargs["tokenizer_trust_remote_code"] = True
+        kwargs["model_trust_remote_code"] = True
+    elif "gpt" in model_name_or_path.lower():
+        kwargs["use_fast"] = True
+        kwargs["tokenizer_trust_remote_code"] = True
+        kwargs["model_trust_remote_code"] = True
+    else:
+        raise NotImplementedError
+    logger.info("Loading tokenizer.")
+    tokenizer = transformers.AutoTokenizer.from_pretrained(
+        model_name_or_path,
+        cache_dir=cache_dir,
+        model_max_length=model_max_length,
+        padding_side="right",
+        use_fast=kwargs["use_fast"],
+        trust_remote_code=kwargs["tokenizer_trust_remote_code"],
+    )
+    if tokenizer.pad_token is None:
+        if tokenizer.unk_token is not None:
+            tokenizer.pad_token = tokenizer.unk_token
+        elif tokenizer.eos_token is not None:
+            tokenizer.pad_token = tokenizer.eos_token
+        else:
+            raise ValueError
+    logger.info(
+        f"bos_token: {tokenizer.bos_token}, {tokenizer.bos_token_id} "
+        f"eos_token: {tokenizer.eos_token}, {tokenizer.eos_token_id} "
+        f"unk_token: {tokenizer.unk_token}, {tokenizer.unk_token_id} "
+        f"pad_token: {tokenizer.pad_token}, {tokenizer.pad_token_id} "
+    )
+    return tokenizer, kwargs
+
+###########################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 logger = get_logger(__name__)
 

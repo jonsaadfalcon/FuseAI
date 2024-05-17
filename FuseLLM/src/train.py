@@ -51,9 +51,17 @@ def train():
                 [load_from_disk(_)["train"] for _ in dataset_name_list]
             )
         if args.do_eval:
-            raw_dataset["validation"] = concatenate_datasets(
-                [load_from_disk(_)["validation"] for _ in dataset_name_list]
-            )
+            
+            try:
+                raw_dataset["validation"] = concatenate_datasets(
+                    [load_from_disk(_)["validation"] for _ in dataset_name_list]
+                )
+            except:
+                print("No validation set found, using test set for evaluation.")
+                raw_dataset["validation"] = concatenate_datasets(
+                    [load_from_disk(_)["test"] for _ in dataset_name_list]
+                )
+
         if args.do_eval:
             raw_dataset["test"] = concatenate_datasets(
                 [load_from_disk(_)["test"] for _ in dataset_name_list]
@@ -65,10 +73,29 @@ def train():
             max_train_samples = min(len(train_dataset), data_args.max_train_samples)
             train_dataset = train_dataset.select(range(max_train_samples))
     if args.do_eval:
-        eval_dataset = dataset["validation"]
+        try:
+            eval_dataset = dataset["validation"]
+        except:
+            print("No validation set found, using test set for evaluation.")
+            eval_dataset = dataset["test"]
+        
         if data_args.max_eval_samples is not None:
             max_eval_samples = min(len(eval_dataset), data_args.max_eval_samples)
             eval_dataset = eval_dataset.select(range(max_eval_samples))
+
+    ###################################################
+
+    #breakpoint()
+
+    #def convert_lists_to_tensors(example):
+    #    # Convert all lists in the example to PyTorch tensors
+    #    return {key: torch.tensor(value) if isinstance(value, list) else value 
+    #            for key, value in example.items()}
+    
+    #train_dataset = train_dataset.map(convert_lists_to_tensors, batched=True, batch_size=1)
+    #eval_dataset = eval_dataset.map(convert_lists_to_tensors, batched=True, batch_size=1)
+
+    ###################################################
 
     if args.do_distill:
         data_collator = DataCollatorForDistill(
